@@ -1,19 +1,23 @@
-# React + Vite
+# Simple React To-Do List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A straightforward, component-based To-Do application built with React.js and Vite. This project handles full CRUD operations, saves data to the browser's Local Storage, and uses native browser features for unique keys.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Full CRUD:** Add, view, edit text inline, toggle completion, and delete tasks.
+- **Local Storage:** Automatically saves tasks to the browser so they stay there when you refresh.
+- **Uncontrolled Form:** Uses `useRef` for the main input to grab text only on submit, preventing unnecessary re-renders while typing.
+- **Unique Keys:** Uses native browser `crypto.randomUUID()` to generate distinct IDs for list elements instead of relying on array indexes.
+- **No Extra Dependencies:** Built entirely using native React hooks (`useState`, `useRef`, `useEffect`) without any custom hooks or third-party packages.
 
-## React Compiler
+## Folder Structure
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# To-Do-crud-application
+```text
+src/
+├── components/
+│   ├── TodoForm.jsx   # Text input box and add button
+│   ├── TodoItem.jsx   # Single todo row handling edit/delete states
+│   └── TodoList.jsx   # List container that loops through the items
+├── App.jsx            # Main file managing state and localStorage
+├── index.css          # App styles
+└── main.jsx           # App entry point
