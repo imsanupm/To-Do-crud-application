@@ -1,0 +1,208 @@
+
+
+
+/* Base Reset & Custom Variables */
+:root {
+  --bg-primary: #121214;
+  --bg-surface: #1a1a1e;
+  --bg-input: #26262b;
+  --text-main: #e1e1e6;
+  --text-muted: #8d8d99;
+  --color-primary: #6366f1; /* Indigo accents */
+  --color-primary-hover: #4f46e5;
+  --color-danger: #f75a68;
+  --color-danger-hover: #c53030;
+  --color-success: #00b37e;
+  --radius: 8px;
+  --transition: all 0.2s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* App Layout Container */
+.todo-app {
+  background-color: var(--bg-surface);
+  width: 100%;
+  max-width: 540px;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border: 1px solid #29292e;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: -0.5px;
+  color: #fff;
+}
+
+/* Form Styles */
+.todo-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.todo-form input[type="text"] {
+  flex: 1;
+  background-color: var(--bg-input);
+  border: 1px solid #29292e;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius);
+  color: var(--text-main);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.todo-form input[type="text"]:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.todo-form button {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.todo-form button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* List Container */
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2rem 0;
+  font-style: italic;
+}
+
+/* Individual Item Row */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--bg-input);
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.todo-item:hover {
+  border-color: #323238;
+}
+
+/* Checkbox Styling */
+.todo-item input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: var(--transition);
+}
+
+.todo-item input[type="checkbox"]:checked {
+  background-color: var(--color-primary);
+}
+
+.todo-item input[type="checkbox"]:checked::before {
+  content: "✓";
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Text & Inline Edit Elements */
+.todo-item span {
+  flex: 1;
+  font-size: 0.95rem;
+  cursor: pointer;
+  user-select: none;
+  word-break: break-all;
+  transition: var(--transition);
+}
+
+.todo-item.completed span {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+/* Inline Edit Input Field */
+.todo-item input[type="text"] {
+  flex: 1;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--color-primary);
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.todo-item input[type="text"]:focus {
+  outline: none;
+}
+
+/* Action Control Buttons */
+.actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.actions button {
+  background: transparent;
+  border: none;
+  padding: 0.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+/* Button UI variations */
+.actions button:first-child:hover {
+  background-color: rgba(99, 102, 241, 0.15); /* Light indigo highlight for edit/save */
+}
+
+.actions button:last-child:hover {
+  background-color: rgba(247, 90, 104, 0.15); /* Light red highlight for delete */
+}
